@@ -23,14 +23,6 @@ public class MainActivity {
     }
 
     public static void main(String[] args) {
-        try {
-            ChangUtils.Crypto.Key.set("F130C02F55C5C7AABFE51907E4065A7426B52B6".substring(0, 32));
-            ChangUtils.Crypto.IV.set(ChangUtils.Crypto.Key.get().substring(0, 16));
-            System.out.println(ChangUtils.Crypto.INSTANCE.decryptText("cHqGnqRZn/kgvVqE6tIqNg=="));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         new ChangUtils().wrapNullCallback(null, () -> {
             System.out.println("이 객체는 NULL 값이다.");
         });
