@@ -23,6 +23,14 @@ public class MainActivity {
     }
 
     public static void main(String[] args) {
+        ChangUtils.Crypto.Key.set("F130C02F55C5C7AABFE51907E4065A7426B52B6".substring(0, 32));
+        ChangUtils.Crypto.IV.set("F130C02F55C5C7AABFE51907E4065A7426B52B6".substring(0, 16));
+        try {
+            ChangUtils.Crypto.INSTANCE.encryptText("ASDF");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         new ChangUtils().wrapNullCallback(null, () -> {
             System.out.println("이 객체는 NULL 값이다.");
         });

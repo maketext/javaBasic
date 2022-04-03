@@ -34,7 +34,8 @@ public class ChangUtils {
         if(object == null) callbackFunction.run();
     }
 
-    private enum Crypto {
+    public enum Crypto {
+        INSTANCE("INSTANCE"),
         Algorithm("AES/CBC/PKCS5Padding"),
         Key("F130C02F55C5C7AABFE51907E4065A7426B52B6".substring(0, 32)),
         IV(Crypto.Key.value.substring(0, 16));
@@ -48,6 +49,7 @@ public class ChangUtils {
         {
             return this.value;
         }
+        void set(String value) { this.value = value; }
 
         public String encryptText(String text) throws Exception {
             Cipher cipher = Cipher.getInstance(Crypto.Algorithm.value);
