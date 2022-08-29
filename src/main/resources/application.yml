@@ -1,0 +1,49 @@
+server:
+  port : 8888
+
+spring:
+  config:
+    use-legacy-processing: true
+  servlet:
+    session:
+      timeout: 60
+    multipart:
+      enabled: true
+      #      file-size-threshold: 1MB
+      max-file-size: 10MB
+      max-request-size: 10MB
+  profiles:
+    active: dev
+#mybatis.mapper-locations:classpath:mappers/*.xml
+# model 프로퍼티 camel case 설정
+#mybatis.configuration.map-underscore-to-camel-case=true
+# 패키지 명을 생략할 수 있도록 alias 설정
+#mybatis.type-aliases-package.com.prototype.domain.entity
+# mapper 로그레벨 설정
+#logging.level.com.prototype.domain.repository=TRACE
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#base-dir: /var/www/html
+
+---
+
+spring:
+  profiles: prod
+
+#base-dir: /home/seoulbiennale/sbau_app
+
+custom:
+  list:
+    - L1
+    - L2
+    - L3
+    - L4
+    - L5
