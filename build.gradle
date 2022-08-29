@@ -1,25 +1,31 @@
 plugins {
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
-group 'com.plusuinv'
-version '1.0-SNAPSHOT'
+group = 'com.plusuniv'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.11'
 
 repositories {
     mavenCentral()
+
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // https://mvnrepository.com/artifact/org.mybatis/mybatis
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
+    runtimeOnly 'mysql:mysql-connector-java'
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    //implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.7'
 }
 
 test {
     useJUnitPlatform()
-}
-
-compileJava.options.encoding = 'UTF-8'
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
 }
